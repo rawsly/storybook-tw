@@ -8,6 +8,8 @@ export default {
   argTypes: {
     color: {
       options: [
+        "primary",
+        "secondary",
         "red",
         "blue"
       ],
@@ -17,14 +19,19 @@ export default {
       options: [
         "primary",
         "secondary",
-        "outlined",
+        "outline",
       ],
       control: { type: "select" }
     }
   }
 };
 
-const Template = args => <Button {...args} />;
+const Template = args => {
+  console.log(args);
+  return (
+    <Button {...args} />
+  )
+};
 const TemplateWithBackground = args => (
   <div style={{ backgroundColor: '#959595', height: '100%', padding: 20 }}>
     <Button {...args} />
@@ -34,7 +41,7 @@ const TemplateWithBackground = args => (
 export const DefaultButton = Template.bind({});
 DefaultButton.args = {
   onClick: () => { },
-  content: 'Click Me!',
+  content: 'Click',
   dense: false,
 };
 
@@ -52,17 +59,16 @@ SecondaryButton.args = {
   dense: false,
 };
 
-export const OutlinedButton = Template.bind({});
-OutlinedButton.args = {
+export const OutlineButton = Template.bind({});
+OutlineButton.args = {
   ...DefaultButton.args,
   color: "red",
-  type: 'outlined',
+  type: 'outline',
   dense: false,
 };
 
-export const Colored = Template.bind({});
-Colored.args = {
+export const DenseButton = Template.bind({});
+DenseButton.args = {
   ...DefaultButton.args,
-  color: "red",
-  dense: false,
-};
+  dense: true,  
+}

@@ -4,19 +4,20 @@ import PropTypes from "prop-types";
 const Button = ({
   className,
   onClick,
-  styles,
-  content,
+  style,
   children,
   type,
   dense,
   color,
+  content,
   ...props
 }) => {
+  const classes = ['btn', `btn-${type}`, color && `btn-color-${color}`, className].filter(c => !!c).join(' ');
   return (
     <WButton
-      className={`btn btn-${type} ${type !== color ? `btn-${color}` : ""}`}
+      className={classes}
       onClick={onClick}
-      styles={styles}
+      style={style}
       dense={dense}
       {...props}
     >
@@ -26,19 +27,21 @@ const Button = ({
 };
 
 Button.propTypes = {
+  className: PropTypes.string,
   onClick: PropTypes.func.isRequired,
-  content: PropTypes.string.isRequired,
-  children: PropTypes.element,
-  type: PropTypes.oneOf(['primary', 'secondary', 'outlined']),
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
+  type: PropTypes.oneOf(['primary', 'secondary', 'outline']),
   dense: PropTypes.bool,
   color: PropTypes.oneOf(['primary', 'secondary', 'red', 'blue']),
+  content: PropTypes.string,
 };
 
 Button.defaultProps = {
-  children: null,
+  className: '',
   type: 'primary',
   dense: false,
-  color: 'primary'
+  color: '',
+  content: ''
 };
 
 export default Button;
