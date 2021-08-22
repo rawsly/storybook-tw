@@ -16,15 +16,28 @@ module.exports = {
         600: '#0073bc',
         700: '#00579c',
         800: '#003c7d',
-        900: '#002460'
+        900: '#002460',
+        DEFAULT: '#3490dc',
       },
       secondary: '#fff',
-      white: '#fff',
+      white: {
+        DEFAULT: '#FFF',
+        soft: '#F4FAFF',
+      },
       blue: colors.blue,
       red: colors.red,
-      gray: colors.gray
+      gray: colors.gray,
+      display: {
+        DEFAULT: '#214358',
+        light: 'rgba(33, 67, 88, 0.2)'
+      },
     },
     extend: {
+      fontFamily: {
+        body: ["Lato", "Arial", "sans-serif"],
+        display: ["Lato", "Arial", "sans-serif"],
+        lato: ["Lato"]
+      },
       backgroundColor: theme => ({
         ...theme('colors'),
       }),
@@ -40,18 +53,23 @@ module.exports = {
       width: {
         '300': '75rem',
         'full': '100vw',
-        'max': '100%'
+        'max': '100%',
+        'camera': '25rem',
       },
       height: {
         '156': '39rem',
         'full': '100vh',
-        'max': '100%'
+        'max': '100%',
+        'camera': '14.0625rem'
       },
       flex: {
         '2': '2 2 0%'
       },
       margin: {
         '18': '4.5rem'
+      },
+      scale: {
+        'reverse-100': '-1'
       }
     },
   },

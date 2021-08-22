@@ -3,11 +3,21 @@ import styled from 'styled-components';
 import Step from './Step';
 
 const Steps = ({ steps, activeStepIndex }) => {
+    const getStatus = (stepIndex) => {
+        if (stepIndex === activeStepIndex) {
+            return "Checking...";
+        }
 
+        if (stepIndex > activeStepIndex) {
+            return "Not Started...";
+        }
+
+        return "Passed";
+    }
     return (
         <StepContainer className="flex flex-col justify-start mt-18">
-            {steps.map(step => (
-                <Step step={step} />
+            {steps.map((step, index) => (
+                <Step step={step} active={index === activeStepIndex} status={getStatus(index)} />
             ))}
         </StepContainer>
 
