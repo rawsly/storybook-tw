@@ -66,10 +66,25 @@ module.exports = {
         '2': '2 2 0%'
       },
       margin: {
-        '18': '4.5rem'
+        '18': '4.5rem',
+        '19': '4.75rem'
       },
       scale: {
         'reverse-100': '-1'
+      },
+      animation: {
+        'slide-bottom': 'slide-bottom 3s',
+        'slide-top': 'slide-top 3s'
+      },
+      keyframes: {
+        'slide-bottom': {
+          '0%': { translateY: '0%', opacity: '1' },
+          '100%': { translateY: '200%', opacity: '0' }
+        },
+        'slide-top': {
+          '0%': { translateY: '200%', opacity: '0' },
+          '100%': { translateY: '0%', opacity: '1' }
+        }
       }
     },
   },
